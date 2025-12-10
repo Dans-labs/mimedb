@@ -1,6 +1,6 @@
 # mimedb
 
-Convert between file extensions and mimetypes and vice-versa
+Convert between file extensions and mimetypes and vice-versa. Uses source files from mime-db (https://github.com/jshttp/mime-db) and galaxy-datatypes (https://github.com/galaxyproject/galaxy).
 
 ## Installation
 
