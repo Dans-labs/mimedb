@@ -21,3 +21,15 @@ def get_extensions(type):
 
     db = core.get_types()
     return db.get(type.lower(), [])
+
+def equivalent_types(type):
+    '''Returns the list of equivalent types for a given type.'''
+
+    extensions = get_extensions(type)
+    equivalent = set()
+    for ext in extensions:
+        types = get_types(ext)
+        for s,t in types:
+            if t.lower() != type.lower():
+                equivalent.add(t)
+    return list(equivalent)
