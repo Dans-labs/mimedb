@@ -18,4 +18,8 @@ import mimedb
 # Get file extension from mimetype
 # ["json", ...]
 json_file_extensions = mimedb.get_extensions("application/json")
+# Get equivalent types
+# ['galaxy.datatypes.text:json', ...]
+json_equivalents = mimedb.equivalent_types("application/json")
+
 ```
