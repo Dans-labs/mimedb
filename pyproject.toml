@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "h5py>=3.16.0",
+    "magika>=1.0.2",
     "pyarrow>=23.0.1",
     "requests>=2.32.5",
 ]
