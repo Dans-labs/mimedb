@@ -1,17 +1,7 @@
-"""
-CSV parser that infers schema using the functions defined in schema_types.py
-"""
-
 import csv
 import json
 from pathlib import Path
-
 import schema_types as types
-
-
-# ------------------------------
-# CSV reader
-# ------------------------------
 
 def read_csv_rows(path, sample_size=None, encoding="utf-8"):
     """
@@ -33,11 +23,6 @@ def read_csv_rows(path, sample_size=None, encoding="utf-8"):
 
     return rows
 
-
-# ------------------------------
-# schema inference
-# ------------------------------
-
 def infer_csv_schema(path, sample_size=1000):
     """
     Infer schema from a CSV file.
@@ -55,11 +40,6 @@ def infer_csv_schema(path, sample_size=1000):
 
     return schema
 
-
-# ------------------------------
-# schema fingerprint
-# ------------------------------
-
 def schema_fingerprint(schema):
     """
     Compute deterministic schema hash.
@@ -71,22 +51,12 @@ def schema_fingerprint(schema):
 
     return "sha256:" + hashlib.sha256(canonical.encode()).hexdigest()
 
-
-# ------------------------------
-# MIME type generation
-# ------------------------------
-
 def csv_mimetype(schema_hash):
     """
     Produce schema-aware CSV mimetype.
     """
 
     return f"text/csv; schema={schema_hash}"
-
-
-# ------------------------------
-# CLI utility
-# ------------------------------
 
 def main():
 

@@ -1,31 +1,11 @@
-"""
-Infer a schema from a JSON file.
-
-Works for:
-- JSON arrays of objects
-- single JSON objects
-- nested JSON structures
-"""
-
 import json
 from collections import Counter
-
 import schema_types as types
-
-
-# ------------------------------
-# JSON reader
-# ------------------------------
 
 def load_json(path):
 
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
-
-
-# ------------------------------
-# recursive type detection
-# ------------------------------
 
 def infer_value_schema(value):
 
@@ -84,11 +64,6 @@ def infer_value_schema(value):
 
     return {"type": "string"}
 
-
-# ------------------------------
-# schema merging
-# ------------------------------
-
 def merge_schemas(schemas):
 
     if not schemas:
@@ -128,11 +103,6 @@ def merge_schemas(schemas):
 
     return {"type": most_common}
 
-
-# ------------------------------
-# top-level inference
-# ------------------------------
-
 def infer_json_schema(path):
 
     data = load_json(path)
@@ -148,19 +118,9 @@ def infer_json_schema(path):
 
     return schema
 
-
-# ------------------------------
-# canonical schema
-# ------------------------------
-
 def canonical_schema(schema):
 
     return json.dumps(schema, sort_keys=True, separators=(",", ":"))
-
-
-# ------------------------------
-# schema fingerprint
-# ------------------------------
 
 def schema_fingerprint(schema):
 
@@ -169,11 +129,6 @@ def schema_fingerprint(schema):
     canonical = canonical_schema(schema)
 
     return "sha256:" + hashlib.sha256(canonical.encode()).hexdigest()
-
-
-# ------------------------------
-# CLI
-# ------------------------------
 
 def main():
 
