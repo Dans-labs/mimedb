@@ -21,5 +21,8 @@ json_file_extensions = mimedb.get_extensions("application/json")
 # Get equivalent types
 # ['galaxy.datatypes.text:json', ...]
 json_equivalents = mimedb.equivalent_types("application/json")
+# Ger related file extensions
+# ['jpg', 'jpe', 'jfi']
+jpeg_related_extensions = mimedb.related_extensions("jpeg")
 
 ```
