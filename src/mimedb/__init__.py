@@ -1,4 +1,4 @@
-from .api import types2extensions, extensions2types, get_types, get_extensions, equivalent_types
+from .api import types2extensions, extensions2types, get_types, get_extensions, equivalent_types, related_extensions
 
 __all__ = [
     'types2extensions',
@@ -6,4 +6,5 @@ __all__ = [
     'get_types',
     'get_extensions',
     'equivalent_types',
+    'related_extensions',
 ]
